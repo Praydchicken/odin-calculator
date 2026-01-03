@@ -1,5 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 *:not(dialog) {
@@ -15,6 +16,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #32302f;
 }
 
 img, picture, video, canvas, svg {
@@ -33,6 +35,59 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
+
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+}
+
+h1 {
+	text-align: center;
+	font-size: 5em;
+	margin-block: 24px;
+	color: white;
+}
+
+.calculator {
+	max-inline-size: fit-content;
+	margin: 0 auto;
+	background-color: black;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.calculator__display {
+	text-align: end;
+	background-color: orange;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.calculator__input {
+	font-size: 4em;
+}
+
+.calculator__equation {
+	font-size: 2em;
+	opacity: 50%;
+}
+
+.calculator__display {
+	line-height: 1.2;
+}
+
+.calculator__buttons div {
+	display: flex;
+	gap: 1px;
+	margin-block-start: 1px;
+}
+
+.calculator__buttons button {
+	width: 80px;
+	height: 80px;
+	flex:1;
+	border: none;
+	background-color: grey;
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
 }
