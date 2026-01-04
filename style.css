@@ -28,10 +28,6 @@ input, button, textarea, select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
 p {
   text-wrap: pretty;
 }
@@ -48,7 +44,7 @@ h1 {
 }
 
 .calculator {
-	max-inline-size: fit-content;
+	max-inline-size: 400px;
 	margin: 0 auto;
 	background-color: black;
 	border-radius: 12px;
@@ -82,7 +78,6 @@ h1 {
 }
 
 .calculator__buttons button {
-	width: 80px;
 	height: 80px;
 	flex:1;
 	border: none;
