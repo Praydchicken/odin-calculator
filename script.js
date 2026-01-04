@@ -36,7 +36,7 @@ function handleNumbers(number) {
 }
 
 function handleBackSpace() {
-	if (currentInput > 1) {
+	if (currentInput.length > 1) {
 		currentInput = currentInput.slice(0, -1);
 	} else {
 		currentInput = '0';
