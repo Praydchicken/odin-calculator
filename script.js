@@ -1,6 +1,7 @@
 const buttonsElement = document.querySelector('.js-buttons');
+const inputElement = document.querySelector('.js-input');
 
-let currentInput = '';
+let currentInput = '0';
 
 buttonsElement.addEventListener('click', (event) => {
 	const button = event.target.closest('button');
@@ -24,4 +25,9 @@ function handleNumbers(number) {
 
 	currentInput += number;
 	console.log(`current input: ${currentInput}`);
+	updateDisplay(currentInput);
+}
+
+function updateDisplay(input) {
+	inputElement.textContent = input;
 }
