@@ -25,7 +25,12 @@ function handleNumbers(number) {
 		return;
 	}
 
-	currentInput += number;
+	if (currentInput === '0') {
+		currentInput = number;
+	} else {
+		currentInput += number;
+	}
+
 	console.log(`current input: ${currentInput}`);
 	updateDisplay(currentInput);
 }
