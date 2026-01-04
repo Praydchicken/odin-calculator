@@ -14,6 +14,8 @@ buttonsElement.addEventListener('click', (event) => {
 
 	if (!isNaN(Number(val)) || val === '.') {
 		handleNumbers(val);
+	} else if (val === 'CE') {
+		handleBackSpace();
 	}
 });
 
@@ -25,6 +27,16 @@ function handleNumbers(number) {
 
 	currentInput += number;
 	console.log(`current input: ${currentInput}`);
+	updateDisplay(currentInput);
+}
+
+function handleBackSpace() {
+	if (currentInput > 1) {
+		currentInput = currentInput.slice(0, -1);
+	} else {
+		currentInput = '0';
+	}
+
 	updateDisplay(currentInput);
 }
 
