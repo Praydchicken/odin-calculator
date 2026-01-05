@@ -1,10 +1,12 @@
 const buttonsElement = document.querySelector('.js-buttons');
 const inputElement = document.querySelector('.js-input');
+const equationElement = document.querySelector('.js-equation');
 
 const OPERATORS = ['+', '-', '*', '/'];
 
 let currentInput = '0';
 let operator = '';
+let previousInput = '0';
 
 buttonsElement.addEventListener('click', (event) => {
 	const button = event.target.closest('button');
@@ -43,7 +45,18 @@ function handleNumbers(number) {
 }
 
 function handleOperators(operatorSign) {
-	operator = operatorSign;
+	if (operator !== '' && currentInput === '0') {
+		operator = operatorSign;
+		updateEquationDisplay();
+		return;
+	} else {
+		operator = operatorSign;
+		previousInput = currentInput;
+		currentInput = '0';
+	}
+
+	updateEquationDisplay(operatorSign);
+	updateInputDisplay(currentInput);
 }
 
 function handleBackSpace() {
@@ -58,9 +71,17 @@ function handleBackSpace() {
 
 function handleDelete() {
 	currentInput = '0';
+	previousInput = '0';
+	operator = '';
+
+	updateEquationDisplay();
 	updateInputDisplay(currentInput);
 }
 
 function updateInputDisplay(input) {
 	inputElement.textContent = input;
+}
+
+function updateEquationDisplay() {
+	equationElement.textContent = `${previousInput} ${operator}`;
 }
