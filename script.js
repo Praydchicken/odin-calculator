@@ -39,7 +39,7 @@ function handleNumbers(number) {
 	}
 
 	console.log(`current input: ${currentInput}`);
-	updateDisplay(currentInput);
+	updateInputDisplay(currentInput);
 }
 
 function handleOperators(operatorSign) {
@@ -53,14 +53,14 @@ function handleBackSpace() {
 		currentInput = '0';
 	}
 
-	updateDisplay(currentInput);
+	updateInputDisplay(currentInput);
 }
 
 function handleDelete() {
 	currentInput = '0';
-	updateDisplay(currentInput);
+	updateInputDisplay(currentInput);
 }
 
-function updateDisplay(input) {
+function updateInputDisplay(input) {
 	inputElement.textContent = input;
 }
