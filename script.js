@@ -1,7 +1,10 @@
 const buttonsElement = document.querySelector('.js-buttons');
 const inputElement = document.querySelector('.js-input');
 
+const OPERATORS = ['+', '-', '*', '/'];
+
 let currentInput = '0';
+let operator = '';
 
 buttonsElement.addEventListener('click', (event) => {
 	const button = event.target.closest('button');
@@ -18,6 +21,8 @@ buttonsElement.addEventListener('click', (event) => {
 		handleBackSpace();
 	} else if (val === 'AC') {
 		handleDelete();
+	} else if (OPERATORS.includes(val)) {
+		handleOperators(val);
 	}
 });
 
@@ -35,6 +40,10 @@ function handleNumbers(number) {
 
 	console.log(`current input: ${currentInput}`);
 	updateDisplay(currentInput);
+}
+
+function handleOperators(operatorSign) {
+	operator = operatorSign;
 }
 
 function handleBackSpace() {
