@@ -44,18 +44,29 @@ function handleNumbers(number) {
 	updateInputDisplay(currentInput);
 }
 
+function calculate(leftOperand, rightOperand) {
+	if (operator === '+') return leftOperand + rightOperand;
+	if (operator === '-') return leftOperand - rightOperand;
+	if (operator === '*') return leftOperand * rightOperand;
+	if (operator === '/') return rightOperand === '0' ? 'Error' : leftOperand / rightOperand;
+}
+
 function handleOperators(operatorSign) {
 	if (operator !== '' && currentInput === '0') {
 		operator = operatorSign;
 		updateEquationDisplay();
 		return;
-	} else {
-		operator = operatorSign;
-		previousInput = currentInput;
-		currentInput = '0';
 	}
 
-	updateEquationDisplay(operatorSign);
+	if (previousInput !== '0') {
+		currentInput = calculate(parseFloat(currentInput), parseFloat(previousInput));
+	}
+
+	operator = operatorSign;
+	previousInput = currentInput;
+	currentInput = '0';
+
+	updateEquationDisplay();
 	updateInputDisplay(currentInput);
 }
 
