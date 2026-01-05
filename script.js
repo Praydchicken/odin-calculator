@@ -16,6 +16,8 @@ buttonsElement.addEventListener('click', (event) => {
 		handleNumbers(val);
 	} else if (val === 'CE') {
 		handleBackSpace();
+	} else if (val === 'AC') {
+		handleDelete();
 	}
 });
 
@@ -42,6 +44,11 @@ function handleBackSpace() {
 		currentInput = '0';
 	}
 
+	updateDisplay(currentInput);
+}
+
+function handleDelete() {
+	currentInput = '0';
 	updateDisplay(currentInput);
 }
 
