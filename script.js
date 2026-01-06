@@ -30,6 +30,23 @@ buttonsElement.addEventListener('click', (event) => {
 	}
 });
 
+document.addEventListener('keydown', (event) => {
+	const key = event.key;
+	console.log(key);
+
+	if (isNumber(key)) {
+		handleNumbers(key);
+	} else if (key === 'Backspace') {
+		handleBackSpace();
+	} else if (key === 'Delete') {
+		handleDelete();
+	} else if (OPERATORS.includes(key)) {
+		handleOperators(key);
+	} else if (key === '=') {
+		handleEquals();
+	}
+});
+
 function handleNumbers(number) {
 	if (number === '.' && currentInput.includes('.')) {
 		console.log('Already have decimals');
