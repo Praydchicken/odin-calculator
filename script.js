@@ -36,7 +36,7 @@ function handleNumbers(number) {
 		return;
 	}
 
-	if (currentInput === '0') {
+	if (currentInput === '0' || currentInput === 'Error') {
 		currentInput = number;
 	} else {
 		currentInput += number;
