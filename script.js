@@ -50,7 +50,7 @@ function calculate(leftOperand, rightOperand) {
 	if (operator === '+') return leftOperand + rightOperand;
 	if (operator === '-') return leftOperand - rightOperand;
 	if (operator === '*') return leftOperand * rightOperand;
-	if (operator === '/') return rightOperand === '0' ? 'Error' : leftOperand / rightOperand;
+	if (operator === '/') return rightOperand === 0 ? 'Error' : leftOperand / rightOperand;
 }
 
 function handleOperators(operatorSign) {
