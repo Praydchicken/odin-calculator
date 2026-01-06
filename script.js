@@ -17,7 +17,7 @@ buttonsElement.addEventListener('click', (event) => {
 
 	const val = button.textContent;
 
-	if (!isNaN(Number(val)) || val === '.') {
+	if (isNumber(val)) {
 		handleNumbers(val);
 	} else if (val === 'CE') {
 		handleBackSpace();
@@ -110,6 +110,10 @@ function handleDelete() {
 
 function formatResult(result) {
 	return result === 'Error' ? result : String(result);
+}
+
+function isNumber(key) {
+	return ((key >= '0' && key <= '9') || key === '.');
 }
 
 function updateInputDisplay(input) {
