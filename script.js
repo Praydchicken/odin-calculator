@@ -86,10 +86,10 @@ function handleEquals() {
 }
 
 function handleBackSpace() {
-	if (currentInput.length > 1) {
-		currentInput = currentInput.slice(0, -1);
+	if (currentInput === 'Error' || currentInput.length === 1) {
+    currentInput = '0';
 	} else {
-		currentInput = '0';
+    currentInput = currentInput.slice(0, -1);
 	}
 
 	updateInputDisplay(currentInput);
