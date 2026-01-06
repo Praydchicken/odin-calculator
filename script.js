@@ -61,7 +61,7 @@ function handleOperators(operatorSign) {
 	}
 
 	if (previousInput !== '0') {
-		currentInput = calculate(parseFloat(currentInput), parseFloat(previousInput));
+		currentInput = calculate(parseFloat(previousInput), parseFloat(currentInput));
 	}
 
 	operator = operatorSign;
