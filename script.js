@@ -61,7 +61,8 @@ function handleOperators(operatorSign) {
 	}
 
 	if (previousInput !== '0') {
-		currentInput = calculate(parseFloat(previousInput), parseFloat(currentInput));
+		const result = calculate(parseFloat(previousInput), parseFloat(currentInput));
+		currentInput = formatResult(result);
 	}
 
 	operator = operatorSign;
@@ -77,7 +78,10 @@ function handleEquals() {
 		console.log('Incomplete expression');
 		return;
 	}
-	currentInput = calculate(parseFloat(previousInput), parseFloat(currentInput));
+
+	const result = calculate(parseFloat(previousInput), parseFloat(currentInput));
+	currentInput = formatResult(result);
+
 	previousInput = '0';
 	operator = '';
 
@@ -102,6 +106,10 @@ function handleDelete() {
 
 	updateEquationDisplay();
 	updateInputDisplay(currentInput);
+}
+
+function formatResult(result) {
+	return result === 'Error' ? result : String(result);
 }
 
 function updateInputDisplay(input) {
