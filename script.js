@@ -25,6 +25,8 @@ buttonsElement.addEventListener('click', (event) => {
 		handleDelete();
 	} else if (OPERATORS.includes(val)) {
 		handleOperators(val);
+	} else if (val === '=') {
+		handleEquals();
 	}
 });
 
@@ -67,6 +69,19 @@ function handleOperators(operatorSign) {
 	currentInput = '0';
 
 	updateEquationDisplay();
+	updateInputDisplay(currentInput);
+}
+
+function handleEquals() {
+	if (!operator) {
+		console.log('Incomplete expression');
+		return;
+	}
+	currentInput = calculate(parseFloat(previousInput), parseFloat(currentInput));
+	previousInput = '0';
+	operator = '';
+
+	updateEquationDisplay()
 	updateInputDisplay(currentInput);
 }
 
